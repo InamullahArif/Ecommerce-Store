@@ -1,0 +1,25 @@
+
+.toast-top-right {
+    right: 20px;
+    margin: 0;
+}
+
+.toast-message {
+    font-size: 18px;
+    opacity: 100%;
+}
+.swal-button-size {
+    font-size: 1.2em;
+    padding: 10px 20px;
+}
+.badge-primary {
+    color: #fff;
+    background-color: green;
+}
+.badge-secondary {
+    color: #fff;
+    background-color: #0874fc;
+}
+.toast-close-button {
+    overflow-y: hidden;
+}
