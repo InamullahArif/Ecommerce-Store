@@ -1,8 +1,10 @@
 <?php
 namespace App\Http\Controllers\website;
 
+use App\Jobs\SendEmailJob;
 use App\Mail\MyTestMailOne;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 
@@ -25,10 +27,13 @@ class EmailController extends Controller
         $amount = $request->input('amount');
         // dd($cart[0]['image']);
         // Send the email
-        Mail::send('website.Email.email', compact('name', 'cart', 'amount'), function ($message) use ($email) {
-            $message->to($email)
-                    ->subject('Order Placed Successfully!');
-        });
+        // Mail::send('website.Email.email', compact('name', 'cart', 'amount'), function ($message) use ($email) {
+        //     $message->to($email)
+        //             ->subject('Order Placed Successfully!');
+        // });
+        Log::info('before email');
+        SendEmailJob::dispatch($email, $name, $cart, $amount);
+        Log::info('after email');
         // $mailData = [
         //     'name' => $name,
         //     'cart' => $cart,

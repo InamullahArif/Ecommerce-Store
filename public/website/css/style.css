@@ -631,7 +631,7 @@ button,
   padding-left: 15px; }
 
 .search-wrapper {
-  max-height: 0;
+  /* max-height: 0; */
   overflow: hidden;
   position: absolute;
   left: 0;
@@ -648,7 +648,7 @@ button,
   -o-transition: all 0.4s;
   transition: all 0.4s; }
   .search-wrapper.search-appear {
-    max-height: 70px;
+    /* max-height: 70px; */
     opacity: 1; }
   .header-1 .search-wrapper {
     top: 102%; }

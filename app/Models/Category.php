@@ -12,6 +12,10 @@ class Category extends Model
         "name",
         "description",
     ];
+    public static function searchableFields()
+    {
+        return ['name','description'];
+    }
     public function scopeApplyFilter($query, array $filters)
     {
         $filters = collect($filters);

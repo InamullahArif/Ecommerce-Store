@@ -6,10 +6,11 @@ use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Laravel\Scout\Searchable;
 
 class Blog extends Model
 {
-    use HasFactory;
+    use HasFactory,Searchable;
     protected $fillable = [
         "title",
         "author_name",
@@ -20,6 +21,22 @@ class Blog extends Model
         "qoute",
         "qoute_author_name",
     ];
+    // public function toSearchableArray()
+    // {
+    //     $array = $this->toArray();
+    //     return $array;
+    // }
+    // public function toSearchableArray()
+    // {
+    //     return array_merge($this->toArray(),[
+    //         'id' => (string) $this->id,
+    //         'created_at' => $this->created_at->timestamp,
+    //     ]);
+    // }
+    public static function searchableFields()
+    {
+        return ['title', 'description'];
+    }
     public function scopeApplyFilter($query, array $filters)
     {
         $filters = collect($filters);

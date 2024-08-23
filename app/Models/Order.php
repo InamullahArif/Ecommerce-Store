@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
+    public static function searchableFields()
+    {
+        return ['order_id','first_name','second_name'];
+    }
     protected $fillable = [
         'first_name',
         'second_name',

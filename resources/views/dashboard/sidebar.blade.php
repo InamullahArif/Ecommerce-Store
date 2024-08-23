@@ -231,20 +231,20 @@
                 </li>
                 <li class="menu-item">
                     <li class="menu-item">
-                        <a href="/blog" class="">
+                        <a href="/blogs" class="">
                             <div class="icon"><i class="icon-help-circle"></i></div>
                             <div class="text">Blogs</div>
                         </a>
                     </li>
                 </li>
-                <li class="menu-item">
+                {{-- <li class="menu-item">
                     <li class="menu-item">
                         <a href="/comment" class="">
                             <div class="icon"><i class="icon-help-circle"></i></div>
                             <div class="text">Comments</div>
                         </a>
                     </li>
-                </li>
+                </li> --}}
             </ul>
         </div>
         <div class="center-item">
@@ -288,6 +288,12 @@
                     <a href="/setting" class="">
                         <div class="icon"><i class="icon-settings"></i></div>
                         <div class="text">Setting</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="/multiStepForm" class="">
+                        <div class="icon"><i class="icon-settings"></i></div>
+                        <div class="text">MutliStep Form</div>
                     </a>
                 </li>
                 {{-- <li class="menu-item has-children">

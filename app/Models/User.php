@@ -18,6 +18,10 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    public static function searchableFields()
+    {
+        return ['name','email'];
+    }
     protected $fillable = [
         'name',
         'email',

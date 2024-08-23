@@ -44,7 +44,7 @@
                                 </form>
                             </div>
                             @can('create_users')
-                            <a class="tf-button style-1 w208" href="{{ route('create-product') }}"><i
+                            <a class="tf-button style-1 w208" href="{{ route('create.product') }}"><i
                                     class="icon-plus"></i>Add Product</a>
                             @endcan
                         </div>

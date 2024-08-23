@@ -13,6 +13,7 @@ use App\Services\ProductService;
 use App\Http\Controllers\Controller;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Support\Facades\Log;
 use \Symfony\Component\HttpKernel\Exception\HttpException as Exception;
 
 class ProductController extends Controller {
@@ -50,14 +51,30 @@ class ProductController extends Controller {
         }
     }
 
-    public function create() {
+    // public function test()
+    // {
+    //     try {
+    //         // dd('here'); 
+    //         $cat = $this->productService->getCategories();
+    //         $colors = $this->productService->getColors();
+    //         $sizes = $this->productService->getSizes();
+    //         return view('dashboard.WebsiteManagement.Products.add-new-product1', compact( 'cat', 'colors', 'sizes' ) );
+    //     } catch (\Exception $exception) {
+    //         Log::error($exception->getMessage());
+    //         return back();
+    //     }
+    // }
+    public function create(Request $request) 
+    {
         try {
+            // dd($request); 
             $cat = $this->productService->getCategories();
             $colors = $this->productService->getColors();
             $sizes = $this->productService->getSizes();
-            return view( 'dashboard.WebsiteManagement.Products.add-new-product1', compact( 'cat', 'colors', 'sizes' ) );
-        } catch ( \Exception $exception ) {
-            return $exception->getMessage();
+            return view('dashboard.WebsiteManagement.Products.add-new-product1', compact( 'cat', 'colors', 'sizes' ) );
+        } catch (\Exception $exception) {
+            Log::error($exception->getMessage());
+            return back();
         }
     }
 

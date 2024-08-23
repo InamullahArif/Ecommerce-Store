@@ -338,6 +338,7 @@
                 }
             },
             error: function(response) {
+                console.log(response);
                 if (response.responseJSON.errors.first_name) {
                     $("#first_name").css("display", "block");
                     $("#first_name").text(

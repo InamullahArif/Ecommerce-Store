@@ -1,5 +1,9 @@
 <?php
 
+use App\Models\Product;
+
+
+
 return [
 
     /*
@@ -16,7 +20,20 @@ return [
     |
     */
 
-    'driver' => env('SCOUT_DRIVER', 'algolia'),
+    // 'driver' => env('SCOUT_DRIVER', 'tntsearch'),
+    // 'tntsearch' => [
+    //         'storage'  => storage_path('app'), // Your storage path
+    //         'index'    => env('TNTSEARCH_INDEX', 'index'),
+    //         'fuzziness' => env('TNTSEARCH_FUZZINESS', false),
+    //         'fuzzy'    => [
+    //             'prefix_length' => 2,
+    //             'max_expansions' => 50,
+    //             'distance' => 2
+    //         ],
+    //         'asYouType' => false,
+    //         'searchBoolean' => env('TNTSEARCH_BOOLEAN', false),
+    //     ],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -41,7 +58,18 @@ return [
     | all automatic data syncing will get queued for better performance.
     |
     */
-
+    Product::class => [
+        'collection-schema' => [
+            'fields' => [
+                // ...
+                [
+                    'name' => 'name',
+                    'type' => 'string',
+                    'optional' => true,
+                ],
+            ],
+        ],
+    ],
     'queue' => env('SCOUT_QUEUE', false),
 
     /*
@@ -113,10 +141,7 @@ return [
     */
 
     
-    'algolia' => [
-    'id' => env('ALGOLIA_APP_ID', ''),
-    'secret' => env('ALGOLIA_SECRET', '')
-    ],
+    
     /*
     |--------------------------------------------------------------------------
     | Meilisearch Configuration

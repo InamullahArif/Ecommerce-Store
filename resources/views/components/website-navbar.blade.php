@@ -98,7 +98,7 @@
         </div>
         <div class="search-wrapper">
             <div class="container">
-                <form action="#" class="search-form d-flex align-items-center">
+                <form class="search-form d-flex align-items-center">
                     <button type="submit" class="search-submit bg-transparent pl-0 text-start">
                         <svg class="icon icon-search" width="20" height="20" viewBox="0 0 20 20"
                             fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -108,7 +108,8 @@
                         </svg>
                     </button>
                     <div class="search-input mr-4">
-                        <input type="text" placeholder="Search your products..." autocomplete="off">
+                        <input type="text" name="query" id="query" placeholder="Search your products..."
+                            autocomplete="off">
                     </div>
                     <div class="search-close">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -119,11 +120,213 @@
                         </svg>
                     </div>
                 </form>
+                <!-- Place the search results container here -->
+                <div id="search-results" class="search-results">
+                </div>
+
             </div>
         </div>
+
     </div>
 </header>
+<style>
+    .search-results ul {
+        list-style-type: none;
+        /* Remove default bullets */
+        padding: 0;
+        margin: 0;
+    }
+
+    .search-results li {
+        padding: 8px 12px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .search-results li:last-child {
+        border-bottom: none;
+    }
+
+    .result-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .result-icon {
+        margin-right: 10px;
+        /* Space between icon and text */
+    }
+
+    .result-text {
+        flex-grow: 1;
+        /* Allow text to take up remaining space */
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+    }
+
+    .model-name {
+        font-size: 12px;
+        color: #666;
+        white-space: nowrap;
+        /* Prevent text from wrapping */
+    }
+
+    .search-results li:hover {
+        background-color: #f0f0f0;
+        /* Slight grey background on hover */
+    }
+
+    .results-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        width: 200px;
+        cursor: pointer;
+    }
+
+    .card-img {
+        width: 100%;
+        height: auto;
+    }
+
+    .card-body {
+        padding: 8px;
+    }
+
+    .card-text {
+        font-size: 16px;
+        font-family: Arial, sans-serif;
+        margin: 0;
+    }
+
+    .model-name {
+        font-size: 12px;
+        color: #666;
+        margin-top: 4px;
+    }
+</style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#query').on('input', function() {
+            var query = $(this).val();
+            if (query.length > 0) {
+                $.ajax({
+                    url: '{{ route('search') }}',
+                    type: 'GET',
+                    data: {
+                        query: query
+                    },
+                    success: function(data) {
+                        var resultsContainer = $('#search-results');
+                        resultsContainer.empty();
+
+                        if (data) {
+                            var resultsList = $('<ul></ul>');
+                            for (var model in data) {
+                                if (data.hasOwnProperty(model)) {
+                                    var items = data[model];
+                                    items.forEach(function(item) {
+                                        var displayText = '';
+                                        var result = item.result;
+                                        console.log(result);
+
+                                        var icon =
+                                            '<svg width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.743a6 6 0 1 0-1.757 1.757 6.013 6.013 0 0 0 1.757-1.757zM6 1a5 5 0 1 1 0 10A5 5 0 0 1 6 1z"/></svg>';
+                                        if (result) {
+                                            for (var key in result) {
+                                                // console.log(key);
+                                                if (result.hasOwnProperty(key) &&
+                                                    result[key] &&
+                                                    typeof result[key] === 'string'
+                                                    ) {
+                                                    displayText = result[key];
+                                                    break;
+                                                }
+                                            // console.log(displayText); return;
+                                            }
+                                        }
+
+                                        var resultItem = $('<li></li>')
+                                            .html('<div class="result-content">' +
+                                                '<span class="result-icon">' +
+                                                icon + '</span>' +
+                                                '<span class="result-text">' +
+                                                displayText + '</span>' +
+                                                '<span class="model-name">' +
+                                                model + '</span>' +
+                                                '</div>')
+                                            .data('id', result.id)
+                                            .data('model', model);
+
+                                        resultsList.append(resultItem);
+                                    });
+                                }
+                            }
+
+                            resultsContainer.append(resultsList);
+                        } else {
+                            resultsContainer.append('<p>No results found.</p>');
+                        }
+                    },
+                    error: function(xhr) {
+                        console.error('An error occurred', xhr.responseText);
+                    }
+                });
+            } else {
+                $('#search-results').empty();
+            }
+        });
+
+
+        $(document).on('click', '#search-results li', function() {
+            var id = $(this).data('id');
+            var model = $(this).data('model');
+            $.ajax({
+                url: '/goToSearch',
+                type: 'POST',
+                data: {
+                    id: id,
+                    model: model,
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function(response) {
+                    // if (response.product) {
+                    //     var slug = response.product.slug;
+                    //     var url = `/product/${slug}`;
+                    //     window.location.href = url;
+                    // } else if (response.blog) {
+                    //     var slug = response.blog.slug;
+                    //     var url = `/blogs/${slug}`;
+                    //     window.location.href = url;
+                    // }
+                    // console.log(model,response.data.slug); return;
+                    model = model.toLowerCase() + 's';
+                    if (response.data.slug) {
+                        var url = `/${model}/${response.data.slug}/show`;
+                        window.location.href = url;
+                    } else {
+                        var url = `/${model}/${response.data.id}/show`;
+                        window.location.href = url;
+                    }
+
+                },
+                error: function(xhr) {
+                    console.error('An error occurred', xhr.responseText);
+                }
+            });
+        });
+    });
+</script>
+
+
 <script>
     $(document).ready(function() {
         function loadCartItems() {
@@ -228,7 +431,7 @@
 
             // Reload cart items after quantity update
             loadCartItems();
-            
+
             // getCartItems();
             // console.log('dd');
             const cartItems = getCartItems();

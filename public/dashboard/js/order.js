@@ -21,7 +21,7 @@ function openDeleteModalOrder(id) {
     }).then((result) => {
         if (result.isConfirmed) {
             $.ajax({
-                url: 'order/' + id + '/destroy',
+                url: 'orders/' + id + '/destroy',
                 type: "GET",
                 data: {},
                 success: function(response) {
@@ -29,7 +29,7 @@ function openDeleteModalOrder(id) {
                         $('#row-' + response.order.id).remove();
                         Swal.fire({
                             title: 'Deleted!',
-                            text: 'Your order has been deleted.',
+                        text: 'Your order has been deleted.',
                             icon: 'success',
                             confirmButtonColor: '#3085d6',
                             confirmButtonText: 'OK',

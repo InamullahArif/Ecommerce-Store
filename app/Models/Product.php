@@ -22,15 +22,27 @@ class Product extends Model
     ];
     // public function toSearchableArray()
     // {
-    //     return $this->toArray();
+    //     $array = $this->toArray();
+    //     return $array;
     // }
+    // public function toSearchableArray()
+    // {
+    //     return array_merge($this->toArray(),[
+    //         'id' => (string) $this->id,
+    //         'created_at' => $this->created_at->timestamp,
+    //     ]);
+    // }
+    public static function searchableFields()
+    {
+        return ['name'];
+    }
     protected static function boot()
     {
         parent::boot();
 
         static::saving(function ($product) {
             if (empty($product->slug)) {
-                $product->slug = static::generateUniqueSlug($product->name);
+            $product->slug = static::generateUniqueSlug($product->name);
             }
         });
     }

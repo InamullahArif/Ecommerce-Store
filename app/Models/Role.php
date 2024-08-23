@@ -14,7 +14,10 @@ class Role extends ModelsRole
     protected $fillable = [
     'name',
     ];
-
+    public static function searchableFields()
+    {
+        return ['name'];
+    }
     protected $attributes = [
         'guard_name' => 'web',
     ];

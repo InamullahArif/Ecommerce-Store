@@ -11,7 +11,7 @@
                             <li>
                                 <a href="/"><div class="text-tiny">Dashboard</div></a>
                             </li>
-                            <li>
+                        <li>
                                 <i class="icon-chevron-right"></i>
                             </li>
                             <li>

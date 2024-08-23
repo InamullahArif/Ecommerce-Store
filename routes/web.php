@@ -8,9 +8,11 @@ use Illuminate\Contracts\Auth\UserProvider;
 use App\Http\Controllers\website\BlogsController;
 use App\Http\Controllers\website\EmailController;
 use App\Http\Controllers\Dashboard\BlogController;
+use App\Http\Controllers\Dashboard\FormController;
 use App\Http\Controllers\Dashboard\RoleController;
 use App\Http\Controllers\Dashboard\SizeController;
 use App\Http\Controllers\Dashboard\UserController;
+use App\Http\Controllers\website\SearchController;
 use App\Http\Controllers\Dashboard\ColorController;
 use App\Http\Controllers\Dashboard\OrderController;
 use App\Http\Controllers\Dashboard\UsersController;
@@ -67,7 +69,7 @@ Route::controller(StripePaymentController::class)->group(function(){
     Route::post('stripe', 'stripePost')->name('stripe.post');
 });
 
-Route::get('/blogs/{slug}',[BlogsController::class,'Blogshow'])->name('blog-show');
+Route::get('/blogs/{slug}/show',[BlogsController::class,'Blogshow'])->name('blog-show');
 Route::get('/blogs',[BlogsController::class,'index']);
 
 Route::controller(UserController::class)->prefix('users')->group(function () {
@@ -79,9 +81,13 @@ Route::controller(UserController::class)->prefix('users')->group(function () {
 Route::post('/place-order',[ProductsController::class,'Order'])->name('place.order');
 Route::post('/send-email',[EmailController::class,'sendEmail'])->name('send.Email');
 
+Route::get('/multiStepForm',[FormController::class,'showForm'])->name('multiStepForm');
+Route::post('/storeEmployee',[FormController::class,'store'])->name('employee.store');
 
 
-Route::get('/product/{slug}',[ProductsController::class,'showProduct'])->name('product.website');
+
+
+Route::get('/products/{slug}/show',[ProductsController::class,'showProduct'])->name('product.website');
 Route::get('/get-product-quantity',[ProductsController::class,'getQuantity'])->name('getQuantity');
 Route::get('/get-product-quantity-color',[ProductsController::class,'getQuantityColor'])->name('getQuantityColor');
 Route::get('/shop',[ProductsController::class,'index'])->name('products.index');
@@ -111,19 +117,19 @@ Route::get('/notifications-count',[NotificationController::class,'getNotificatio
 Route::get('/navbar',[WebsiteController::class,'navbar'])->name('navbar.index');
 Route::post('/navbar/edit',[WebsiteController::class,'navbarStore'])->name('navbar.store');
 
-Route::controller(BlogController::class)->prefix('blog')->group(function () {
+Route::controller(BlogController::class)->prefix('blogs')->group(function () {
     Route::get('', 'index')->name('show-blog');
-    Route::get('/{slug}/view', 'show')->name('view-blog');
+    Route::get('/{slug}', 'show')->name('view-blog');
     Route::get('/create', 'create')->name('create-blog');
     Route::post('/store', 'store')->name('store-blog');
-    Route::get('/{slug}','edit')->name('edit-blog');
+    Route::get('/{slug}/edit','edit')->name('edit-blog');
     Route::post('/{id}/update','update')->name('update-blog');
     Route::get('/{slug}/destroy',  'destroy')->name('delete-blog');
 });
 
-Route::controller(OrderController::class)->prefix('order')->group(function () {
+Route::controller(OrderController::class)->prefix('orders')->group(function () {
     Route::get('', 'index')->name('show-order');
-    Route::get('/{id}/view', 'show')->name('view-order');
+    Route::get('/{id}', 'show')->name('view-order');
     // Route::get('/create', 'create')->name('create-blog');
     // Route::post('/store', 'store')->name('store-blog');
     // Route::get('/{slug}','edit')->name('edit-blog');
@@ -133,7 +139,7 @@ Route::controller(OrderController::class)->prefix('order')->group(function () {
 
 Route::controller(CommentController::class)->prefix('comment')->group(function () {
     Route::get('', 'index')->name('show-comment');
-    Route::get('/{slug}/view', 'show')->name('view-comment');
+    Route::get('/{slug}', 'show')->name('view-comment');
     Route::post('/update-status', 'updateStatus');
     Route::post('/store', 'store')->name('store-comment');
 });
@@ -148,12 +154,13 @@ Route::get('logs/{id}',[ActivityLogController::class,'delLog'])->name('delete-lo
 Route::get('view/{id}',[ActivityLogController::class,'viewLog'])->name('view-log');
 
 Route::controller(ProductController::class)->prefix('products')->group(function () {
+    Route::get('create', 'create')->name('create.product');
+    // Route::get('test', 'test')->name('test.product');
     Route::get('', 'index')->name('show-product');
-    Route::get('/{slug}/view', 'show')->name('view-product');
+    Route::get('/{slug}/', 'show')->name('view-product');
     Route::post('/update-status', 'updateStatus');
-    Route::get('/create', 'create')->name('create-product');
     Route::post('/store', 'store')->name('store-product');
-    Route::get('/{slug}','edit')->name('edit-product');
+    Route::get('/{slug}/edit','edit')->name('edit-product');
     Route::post('/{id}/update','update')->name('update-product');
     Route::get('/{slug}/destroy',  'destroy')->name('delete-product');
 });
@@ -173,5 +180,7 @@ Route::controller(SizeController::class)->prefix('sizes')->group(function () {
     Route::post('/{slug}/update','update')->name('update-size');
     Route::get('/{slug}/destroy',  'destroy')->name('delete-size');
 });
-
+Route::get('/search', [SearchController::class, 'search'])->name('search');
+Route::get('/searchDashboard', [SearchController::class, 'search'])->name('searchDashboard');
+Route::post('/goToSearch', [SearchController::class, 'goToSearch'])->name('goToSearch');
 require __DIR__.'/auth.php';

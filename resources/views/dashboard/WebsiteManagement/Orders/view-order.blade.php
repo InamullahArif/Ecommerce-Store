@@ -161,12 +161,12 @@
 
                                 </div>
                                 <div class="wg-box">
-                                    <fieldset class="name mb-24">
+                                    {{-- <fieldset class="name mb-24">
                                         <div class="body-title mb-2" style="font-size: 17px">Order Status</div>
                                         <input class="flex-grow" type="text" placeholder="Order Status"
                                             value="{{ $orders->status }}" name="order_status" tabindex="0"
                                             aria-required="true" style="margin-bottom: 6px;font-size:15px;" readonly>
-                                    </fieldset>
+                                    </fieldset> --}}
                                     <fieldset class="name mb-24">
                                         <div class="body-title mb-2" style="font-size: 17px">Payment Method</div>
                                         <input class="flex-grow" type="text" placeholder="Order Status"

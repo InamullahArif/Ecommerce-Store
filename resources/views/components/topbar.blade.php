@@ -2,71 +2,25 @@
     <div class="wrap">
         <div class="header-left">
             <a href="index.html">
-                <img class="" id="logo_header_mobile" alt="" src="images/logo/logo.png" data-light="images/logo/logo.png" data-dark="images/logo/logo-dark.png" data-width="154px" data-height="52px" data-retina="images/logo/logo@2x.png">
+                <img class="" id="logo_header_mobile" alt="" src="images/logo/logo.png"
+                    data-light="images/logo/logo.png" data-dark="images/logo/logo-dark.png" data-width="154px"
+                    data-height="52px" data-retina="images/logo/logo@2x.png">
             </a>
             <div class="button-show-hide">
                 <i class="icon-menu-left"></i>
             </div>
             <form class="form-search flex-grow">
                 <fieldset class="name">
-                    <input type="text" placeholder="Search here..." class="show-search" name="name" tabindex="2" value="" aria-required="true" required="">
+                    <input type="text" placeholder="Search here..." class="show-search" name="search" id="search"
+                        tabindex="2" value="" aria-required="true" required="">
                 </fieldset>
                 <div class="button-submit">
                     <button class="" type="submit"><i class="icon-search"></i></button>
                 </div>
                 <div class="box-content-search" id="box-content-search">
-                    <ul class="mb-24">
-                        <li class="mb-14">
-                            <div class="body-title">Top selling product</div>
-                        </li>
-                        Total Sales
-                        <li class="mb-14">
-                            <div class="divider"></div>
-                        </li>
-                        <li>
-                            <ul>
-                                <li class="product-item gap14 mb-10">
-                                    <div class="image no-bg">
-                                        <img src="images/products/17.png" alt="">
-                                    </div>
-                                    <div class="flex items-center justify-between gap20 flex-grow">
-                                        <div class="name">
-                                            <a href="product-list.html" class="body-text">Dog Food Rachael Ray Nutrish®</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="mb-10">
-                                    <div class="divider"></div>
-                                </li>
-                                <li class="product-item gap14 mb-10">
-                                    <div class="image no-bg">
-                                        <img src="images/products/18.png" alt="">
-                                    </div>
-                                    <div class="flex items-center justify-between gap20 flex-grow">
-                                        <div class="name">
-                                            <a href="product-list.html" class="body-text">Natural Dog Food Healthy Dog Food</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="mb-10">
-                                    <div class="divider"></div>
-                                </li>
-                                <li class="product-item gap14">
-                                    <div class="image no-bg">
-                                        <img src="images/products/19.png" alt="">
-                                    </div>
-                                    <div class="flex items-center justify-between gap20 flex-grow">
-                                        <div class="name">
-                                            <a href="product-list.html" class="body-text">Freshpet Healthy Dog Food and Cat</a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
                     <ul class="">
                         <li class="mb-14">
-                            <div class="body-title">Order product</div>
+                            <div class="body-title"></div>
                         </li>
                         <li class="mb-14">
                             <div class="divider"></div>
@@ -79,54 +33,21 @@
                                     </div>
                                     <div class="flex items-center justify-between gap20 flex-grow">
                                         <div class="name">
-                                            <a href="product-list.html" class="body-text">Sojos Crunchy Natural Grain Free...</a>
+                                            <a href="product-list.html" class="body-text">Sojos Crunchy Natural Grain
+                                                Free...</a>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="mb-10">
                                     <div class="divider"></div>
-                                </li>
-                                <li class="product-item gap14 mb-10">
-                                    <div class="image no-bg">
-                                        <img src="images/products/21.png" alt="">
-                                    </div>
-                                    <div class="flex items-center justify-between gap20 flex-grow">
-                                        <div class="name">
-                                            <a href="product-list.html" class="body-text">Kristin Watson</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="mb-10">
-                                    <div class="divider"></div>
-                                </li>
-                                <li class="product-item gap14 mb-10">
-                                    <div class="image no-bg">
-                                        <img src="images/products/22.png" alt="">
-                                    </div>
-                                    <div class="flex items-center justify-between gap20 flex-grow">
-                                        <div class="name">
-                                            <a href="product-list.html" class="body-text">Mega Pumpkin Bone</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="mb-10">
-                                    <div class="divider"></div>
-                                </li>
-                                <li class="product-item gap14">
-                                    <div class="image no-bg">
-                                        <img src="images/products/23.png" alt="">
-                                    </div>
-                                    <div class="flex items-center justify-between gap20 flex-grow">
-                                        <div class="name">
-                                            <a href="product-list.html" class="body-text">Mega Pumpkin Bone</a>
-                                        </div>
-                                    </div>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                 </div>
             </form>
+            {{-- <div id="search-results-dashboard" class="search-results">
+            </div> --}}
         </div>
         <div class="header-grid">
             <div class="header-item country">
@@ -140,17 +61,18 @@
             </div>
             <div class="popup-wrap noti type-header">
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         <span class="header-item">
                             {{-- @php
                                  $unreadNotificationsCount = \App\Models\Notification::where('is_read', 0)->count();
                             @endphp --}}
-                            <span class="text-tiny" id="noti_count">{{$notifications->count()}}</span>
+                            <span class="text-tiny" id="noti_count">{{ $notifications->count() }}</span>
                             <i class="icon-bell"></i>
                         </span>
                         {{-- <x-unread-notifications-count/> --}}
                     </button>
-                    <ul class="dropdown-menu dropdown-menu-end has-content" aria-labelledby="dropdownMenuButton1" >
+                    <ul class="dropdown-menu dropdown-menu-end has-content" aria-labelledby="dropdownMenuButton1">
                         <li>
                             <h6>Messages</h6>
                         </li>
@@ -161,15 +83,15 @@
                         {{-- @php
                             $notifications = \App\Models\Notification::orderBy('created_at', 'desc')->take(4)->get();
                         @endphp --}}
-                     {{-- @if(isset($notifications))
-                     @foreach($notifications as $notification)
+                        {{-- @if (isset($notifications))
+                     @foreach ($notifications as $notification)
                         <li>
                             <div class="noti-item w-full wg-user active" id="notification_div"> --}}
-                                {{-- <div class="image">
+                        {{-- <div class="image">
                                     <img src="images/avatar/user-11.png" alt="">
                                 </div> --}}
-                               
-                                {{-- <div class="flex-grow">
+
+                        {{-- <div class="flex-grow">
                                     <div class="flex items-center justify-between">
                                         <a href="#" class="body-title text-red-500" style="@if ($notification->is_read == false) color: red @else color:green @endif">{{$notification->name}}</a>
                                         <div class="time">{{ $notification->created_at->timezone('Asia/Karachi')->format('h:i A') }}</div>
@@ -184,15 +106,15 @@
                         </li>
                     @endforeach
                     @endif --}}
-                    {{-- @if(isset($notifications))
-                        @foreach($notifications as $notification)
+                        {{-- @if (isset($notifications))
+                        @foreach ($notifications as $notification)
                         <li>
                             <div class="noti-item w-full wg-user active" id="notification_div_{{ $notification->id }}"> --}}
-                                {{-- <div class="image">
+                        {{-- <div class="image">
                                     <img src="images/avatar/user-11.png" alt="">
                                 </div> --}}
-                            
-                                {{-- <div class="flex-grow">
+
+                        {{-- <div class="flex-grow">
                                     <div class="flex items-center justify-between">
                                         <a href="#" class="body-title text-red-500" style="@if ($notification->is_read == false) color: red @else color:green @endif" id="notification_link_{{ $notification->id }}">{{$notification->name}}</a>
                                         <div class="time">{{ $notification->created_at->timezone('Asia/Karachi')->format('h:i A') }}</div>
@@ -207,30 +129,42 @@
                         </li>
                         @endforeach
                     @endif --}}
-                     @if(isset($notifications))
-                    @foreach($notifications->slice(0, 4) as $notification)
-                    <li>
-                        <div class="noti-item w-full wg-user active" id="notification_div_{{ $notification->id }}" >
-                            <input type="hidden" name="id" id="notification_id" value="{{ $notification->id }}"  >
-                            <div class="flex-grow">
-                                <div class="flex items-center justify-between">
-                                    <a href="#" class="body-title" style="@if ($notification->is_read == false) color: red @else color:green @endif" id="notification_link_{{ $notification->id }}">
-                                        {{ $notification->name }}
-                                    </a>
-                                    <div class="time">{{ $notification->created_at->timezone('Asia/Karachi')->format('h:i A') }}</div>
-                                </div>
-                                <div class="text-tiny">{{ $notification->detail }}</div>
-                                <div style="display: flex; justify-content: flex-end; font-size:15px">
-                                    <button class="mark-as-read badge @if ($notification->is_read == true) badge-primary
-                                        @else badge-secondary @endif"  data-notification-id="{{ $notification->id }}">
-                                        @if ($notification->is_read == true) Read @else Mark as Read @endif
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                @endforeach
-                @endif
+                        @if (isset($notifications))
+                            @foreach ($notifications->slice(0, 4) as $notification)
+                                <li>
+                                    <div class="noti-item w-full wg-user active"
+                                        id="notification_div_{{ $notification->id }}">
+                                        <input type="hidden" name="id" id="notification_id"
+                                            value="{{ $notification->id }}">
+                                        <div class="flex-grow">
+                                            <div class="flex items-center justify-between">
+                                                <a href="#" class="body-title"
+                                                    style="@if ($notification->is_read == false) color: red @else color:green @endif"
+                                                    id="notification_link_{{ $notification->id }}">
+                                                    {{ $notification->name }}
+                                                </a>
+                                                <div class="time">
+                                                    {{ $notification->created_at->timezone('Asia/Karachi')->format('h:i A') }}
+                                                </div>
+                                            </div>
+                                            <div class="text-tiny">{{ $notification->detail }}</div>
+                                            <div style="display: flex; justify-content: flex-end; font-size:15px">
+                                                <button
+                                                    class="mark-as-read badge @if ($notification->is_read == true) badge-primary
+                                        @else badge-secondary @endif"
+                                                    data-notification-id="{{ $notification->id }}">
+                                                    @if ($notification->is_read == true)
+                                                        Read
+                                                    @else
+                                                        Mark as Read
+                                                    @endif
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            @endforeach
+                        @endif
                         {{-- <li>
                             <div class="noti-item w-full wg-user active">
                                 <div class="image">
@@ -279,13 +213,14 @@
             </div>
             <div class="popup-wrap message type-header">
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         <span class="header-item">
                             <span class="text-tiny">1</span>
                             <i class="icon-message-square"></i>
                         </span>
                     </button>
-                    <ul class="dropdown-menu dropdown-menu-end has-content" aria-labelledby="dropdownMenuButton2" >
+                    <ul class="dropdown-menu dropdown-menu-end has-content" aria-labelledby="dropdownMenuButton2">
                         <li>
                             <h6>Notifications</h6>
                         </li>
@@ -296,7 +231,8 @@
                                 </div>
                                 <div>
                                     <div class="body-title-2">Discount available</div>
-                                    <div class="text-tiny">Morbi sapien massa, ultricies at rhoncus at, ullamcorper nec diam</div>
+                                    <div class="text-tiny">Morbi sapien massa, ultricies at rhoncus at, ullamcorper nec
+                                        diam</div>
                                 </div>
                             </div>
                         </li>
@@ -439,22 +375,24 @@
             @endphp
             <div class="popup-wrap user type-header">
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton3"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         <span class="header-user wg-user">
                             <span class="image">
-                                <img src="{{ asset(Auth::user()->image->name ?? 'user_images/user.jpg') }}" alt="Profile Image" style="border-radius: 10%">
+                                <img src="{{ asset(Auth::user()->image->name ?? 'user_images/user.jpg') }}"
+                                    alt="Profile Image" style="border-radius: 10%">
                             </span>
                             <span class="flex flex-column">
-                                <span class="body-title mb-2">{{Auth::user()->name}}</span>
+                                <span class="body-title mb-2">{{ Auth::user()->name }}</span>
                                 <span class="text-tiny">
-                                    @foreach(Auth::user()->roles as $role)
+                                    @foreach (Auth::user()->roles as $role)
                                         {{ $role->name }}
                                     @endforeach
                                 </span>
                             </span>
                         </span>
                     </button>
-                    <ul class="dropdown-menu dropdown-menu-end has-content" aria-labelledby="dropdownMenuButton3" >
+                    <ul class="dropdown-menu dropdown-menu-end has-content" aria-labelledby="dropdownMenuButton3">
                         <li>
                             <a href="/users/profile/{{ Auth::id() }}" class="user-item">
                                 <div class="icon">
@@ -531,4 +469,119 @@
         });
     }
     </script> --}}
-    
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#search').on('input', function() {
+            var query = $(this).val();
+            if (query.length > 0) {
+                $.ajax({
+                    url: '{{ route('searchDashboard') }}',
+                    type: 'GET',
+                    data: {
+                        query: query
+                    },
+                    success: function(data) {
+                        var resultsContainer = $('#box-content-search');
+                        resultsContainer.empty(); 
+
+                        if (data) {
+                            var resultsList = $('<ul></ul>');
+
+                            for (var model in data) {
+                                if (data.hasOwnProperty(model)) {
+                                    var items = data[model];
+
+                                    items.forEach(function(item) {
+                                        var result = item.result;
+                                        var displayText = '';
+
+                                        for (var key in result) {
+                                            // console.log(key);
+                                            if (result.hasOwnProperty(key) &&
+                                                result[key] && typeof result[
+                                                    key] === 'string') {
+                                                displayText = result[key];
+                                                break;
+                                            }
+                                            // console.log(displayText); return;
+                                        }
+
+                                        var resultItem = $(
+                                                '<li class="product-item gap14 mb-10"></li>'
+                                            )
+                                            .html(`
+                                    <div class="flex items-center justify-between gap20 flex-grow">
+                                        <div class="name">
+                                            <span class="body-text">${displayText}</span>
+                                        </div>
+                                        <div class="model-name" style="margin-left: auto;">
+                                            <span>${model}</span>
+                                        </div>
+                                    </div>
+                                `)
+                                            .data('id', result
+                                                .id) 
+                                            .data('model',
+                                                model);
+
+                                        resultsList.append(resultItem);
+                                        resultsList.append(
+                                            '<li class="mb-10"><div class="divider"></div></li>'
+                                        ); 
+                                    });
+                                }
+                            }
+
+                            resultsContainer.append(resultsList);
+                        } else {
+                            resultsContainer.append('<p>No results found.</p>');
+                        }
+                    },
+                    error: function(xhr) {
+                        console.error('An error occurred', xhr.responseText);
+                    }
+                });
+            } else {
+                $('#box-content-search').empty(); 
+            }
+        });
+        $(document).on('click', '#box-content-search li.product-item', function() {
+            var id = $(this).data('id');
+            var model = $(this).data('model');
+            // console.log(id,model); return;
+            if (id && model) { 
+                $.ajax({
+                    url: '/goToSearch',
+                    type: 'POST',
+                    data: {
+                        id: id,
+                        model: model,
+                        _token: '{{ csrf_token() }}' 
+                    },
+                    success: function(response) {
+                        model = model.toLowerCase() +
+                        's';
+                        var url;
+                        // console.log(response.data); return;
+                        if (response.data.slug) {
+                            url = `/${model}/${response.data.slug}`;
+                        }else
+                        {
+                            url = `/${model}/${response.data.id}`;
+
+                        }
+                        // console.log(url);
+                        window.location.href = url;
+                    },
+                    error: function(xhr) {
+                        console.error('An error occurred', xhr.responseText);
+                    }
+                });
+            } else {
+                console.error('ID or model is missing!');
+            }
+        });
+
+    });
+</script>
